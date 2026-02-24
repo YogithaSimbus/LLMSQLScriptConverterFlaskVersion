@@ -1,0 +1,8 @@
+flask==3.0.0
+gunicorn==21.2.0
+mlflow-skinny>=2.10.0
+databricks-sdk>=0.28.0
+databricks-sql-connector
+pandas==2.0.3
+plotly==5.24.1
+# python-dotenv is not needed for Databricks Apps (auth is automatic)
