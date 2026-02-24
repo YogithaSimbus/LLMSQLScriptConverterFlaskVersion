@@ -1,0 +1,89 @@
+# Switch transpiler configuration for Lakebridge integration
+# This file enables Lakebridge to discover and use Switch as a transpiler
+# Moved this file to the package source to allow for easier access from Lakebridge Client
+remorph:
+  version: 1
+  name: Switch
+  command_line: ["echo", "Switch uses Jobs API, not LSP"]
+  dialects:
+    # SQL dialects
+    - mssql
+    - mysql
+    - netezza  
+    - oracle
+    - postgresql
+    - redshift
+    - snowflake
+    - synapse
+    - teradata
+    # Orchestrator
+    - airflow
+
+options:
+  all:
+    # Conversion settings
+    - flag: source_format
+      method: CHOICE
+      prompt: "Source file format"
+      choices: ["sql", "generic"]
+      default: "sql"
+    - flag: target_type
+      method: CHOICE
+      prompt: "Target output type"
+      choices: ["notebook", "file"]
+      default: "notebook"
+    - flag: output_extension
+      method: QUESTION
+      prompt: "Output file extension (for file target type) - press <enter> for none"
+      default: "<none>"
+
+    # Execution settings
+    - flag: endpoint_name
+      method: QUESTION
+      prompt: "Model endpoint name"
+      default: "databricks-claude-sonnet-4"
+    - flag: concurrency
+      method: QUESTION
+      prompt: "Concurrency level"
+      default: "4"
+    - flag: max_fix_attempts
+      method: QUESTION
+      prompt: "Maximum fix attempts"
+      default: "1"
+    - flag: log_level
+      method: CHOICE
+      prompt: "Log level"
+      choices: ["DEBUG", "INFO", "WARNING", "ERROR"]
+      default: "INFO"
+
+    # Advanced settings
+    - flag: token_count_threshold
+      method: QUESTION
+      prompt: "Token count threshold"
+      default: "20000"
+    - flag: comment_lang
+      method: CHOICE
+      prompt: "Comment language"
+      choices: ["English", "Japanese", "Chinese", "French", "German", "Italian", "Korean", "Portuguese", "Spanish"]
+      default: "English"
+    - flag: conversion_prompt_yaml
+      method: QUESTION
+      prompt: "Custom conversion prompt YAML file path - press <enter> for default"
+      default: "<none>"
+    - flag: sql_output_dir
+      method: QUESTION
+      prompt: "SQL output directory - press <enter> for none"
+      default: "<none>"
+
+    # Complex optional parameters
+    - flag: request_params
+      method: QUESTION
+      prompt: "Additional request parameters (JSON) - press <enter> for none"
+      default: "<none>"
+
+    # Lakebridge CLI specific settings
+    - flag: wait_for_completion
+      method: CHOICE
+      prompt: "Wait for job completion?"
+      choices: ["true", "false"]
+      default: "false"
