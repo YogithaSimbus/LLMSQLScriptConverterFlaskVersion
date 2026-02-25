@@ -1,6 +1,6 @@
 # SQLSwitchConverter: LLM-Driven Migration Orchestrator
 
-**SQLSwitchConverter** is an enterprise-grade web application designed to orchestrate the **Lakebridge Switch** LLM-transpiler. It simplifies the modernization of legacy data warehouses by automating the conversion of complex T-SQL scripts (tested on MSSQL, Teradata, and Snowflake) into Databricks-optimized code.
+**SQLSwitchConverter** is an enterprise-grade web application designed to orchestrate the **Lakebridge Switch** LLM-transpiler. It simplifies the modernization of legacy data warehouses by automating the conversion of complex SQL scripts (tested on MSSQL, Teradata, and Snowflake) into Databricks-optimized code.
 
 By leveraging a **Single-Model Architecture**, SQLSwitch Pro utilizes a powerful Foundation Model (Llama 3.3 70B) to handle both semantic code translation and internal validation in a unified pipeline.
 
