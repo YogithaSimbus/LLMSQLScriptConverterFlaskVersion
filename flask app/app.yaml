@@ -1,5 +1,0 @@
-# app.yaml
-command: [
-  "python",
-  "app.py"
-]
