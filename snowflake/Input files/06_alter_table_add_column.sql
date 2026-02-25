@@ -1,2 +1,0 @@
-ALTER TABLE sales
-ADD COLUMN discount NUMBER(5,2);
